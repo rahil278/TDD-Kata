@@ -32,4 +32,16 @@ public class CalculatorTest {
         res = cal.Add("1,2,3,4");
         assertTrue(res == 10);
     }
+
+    @Test
+    public void testAddCase3() {
+        Calculator cal = new Calculator();
+        int res;
+
+        res = cal.Add("1\n2,3");
+        assertTrue(res == 6);
+
+        res = cal.Add("1,2\n3,4");
+        assertTrue(res == 10);
+    }
 }
