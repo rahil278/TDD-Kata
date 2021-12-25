@@ -20,4 +20,16 @@ public class CalculatorTest {
         res = cal.Add("1,2");
         assertTrue(res == 3);
     }
+
+    @Test
+    public void testAddCase2() {
+        Calculator cal = new Calculator();
+        int res;
+
+        res = cal.Add("1,2,3");
+        assertTrue(res == 6);
+
+        res = cal.Add("1,2,3,4");
+        assertTrue(res == 10);
+    }
 }

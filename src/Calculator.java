@@ -1,19 +1,12 @@
 public class Calculator {
     public static int Add(String numbers) {
-        int sum, num1, num2;
+        int i, length, sum=0;
         if(!numbers.equals("")) {
             String[] input = numbers.split("[,]", 0);
-            if(input.length > 1) {
-                num1 = Integer.parseInt(input[0]);
-                num2 = Integer.parseInt(input[1]);
-                sum = num1 + num2;
+            length = input.length;
+            for(i=0; i<length; i++) {
+                sum += Integer.parseInt(input[i]);
             }
-            else {
-                sum = Integer.parseInt(input[0]);
-            }
-        }
-        else {
-            sum = 0;
         }
         return sum;
     }
