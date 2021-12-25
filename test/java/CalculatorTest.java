@@ -11,5 +11,9 @@ public class CalculatorTest {
         // subcase 1
         res = cal.Add("");
         assertTrue(res == 0);
+
+        // subcase 2
+        res = cal.Add("1");
+        assertTrue(res == 1);
     }
 }
