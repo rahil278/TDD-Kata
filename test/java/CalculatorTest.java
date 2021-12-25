@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CalculatorTest {
     @Test
-    public void testAddCase1() {
+    public void testAddCase1() throws Exception{
         Calculator cal = new Calculator();
         int res;
 
@@ -22,7 +22,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void testAddCase2() {
+    public void testAddCase2() throws Exception{
         Calculator cal = new Calculator();
         int res;
 
@@ -34,7 +34,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void testAddCase3() {
+    public void testAddCase3() throws Exception{
         Calculator cal = new Calculator();
         int res;
 
@@ -46,7 +46,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void testAddCase4() {
+    public void testAddCase4() throws Exception{
         Calculator cal = new Calculator();
         int res;
 
@@ -55,5 +55,24 @@ public class CalculatorTest {
 
         res = cal.Add("//#\n1#2#3#4");
         assertTrue(res == 10);
+    }
+
+    @Test
+    public void testAddCase5() {
+        Calculator cal = new Calculator();
+        int res;
+        try {
+            res = cal.Add("//;\n1;-2\n3");
+        }
+        catch (Exception e) {
+            assertTrue(e.getMessage().equals("negatives not allowed -2"));
+        }
+
+        try {
+            res = cal.Add("//;\n1;-2\n3;-4");
+        }
+        catch (Exception e) {
+            assertTrue(e.getMessage().equals("negatives not allowed -2, -4"));
+        }
     }
 }
